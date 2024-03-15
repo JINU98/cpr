@@ -1,0 +1,632 @@
+<html><head>
+    <title>Menatl Health Reddit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="assets/css/main.css">
+<script defer="" src="/static/js/bundle.js"></script><style>body {
+margin: 0;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+monospace;
+}
+p{
+color: black;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxTQUFTO0VBQ1Q7O2NBRVk7RUFDWixtQ0FBbUM7RUFDbkMsa0NBQWtDO0FBQ3BDOztBQUVBO0VBQ0U7YUFDVztBQUNiO0FBQ0E7RUFDRSxZQUFZO0FBQ2QiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcbiAgbWFyZ2luOiAwO1xuICBmb250LWZhbWlseTogLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCAnUm9ib3RvJywgJ094eWdlbicsXG4gICAgJ1VidW50dScsICdDYW50YXJlbGwnLCAnRmlyYSBTYW5zJywgJ0Ryb2lkIFNhbnMnLCAnSGVsdmV0aWNhIE5ldWUnLFxuICAgIHNhbnMtc2VyaWY7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xufVxuXG5jb2RlIHtcbiAgZm9udC1mYW1pbHk6IHNvdXJjZS1jb2RlLXBybywgTWVubG8sIE1vbmFjbywgQ29uc29sYXMsICdDb3VyaWVyIE5ldycsXG4gICAgbW9ub3NwYWNlO1xufVxucHtcbiAgY29sb3I6IGJsYWNrO1xufSJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.App {
+text-align: center;
+}
+
+.App-logo {
+height: 40vmin;
+pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+.App-logo {
+animation: App-logo-spin infinite 20s linear;
+}
+}
+
+header .subreddit_input {
+/* display: inline-block; */
+/* color: #F3F3F3; */
+/* font-size: 32px; */
+/* font-weight: 600; */
+/* font-style: italic; */
+/* text-transform: uppercase; */
+font-size: 50px;
+background: none;
+border: none;
+outline: none;
+appearance: none;
+color: black;
+}
+
+.App-header {
+background-color: #282c34;
+/* min-height: 100vh; */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-size: calc(10px + 2vmin);
+/* color: white; */
+}
+
+.App-link {
+color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsY0FBYztFQUNkLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFO0lBQ0UsNENBQTRDO0VBQzlDO0FBQ0Y7O0FBRUE7RUFDRSwyQkFBMkI7RUFDM0Isb0JBQW9CO0VBQ3BCLHFCQUFxQjtFQUNyQixzQkFBc0I7RUFDdEIsd0JBQXdCO0VBQ3hCLCtCQUErQjtFQUMvQixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLFlBQVk7RUFDWixhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6Qix1QkFBdUI7RUFDdkIsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixtQkFBbUI7RUFDbkIsdUJBQXVCO0VBQ3ZCLDZCQUE2QjtFQUM3QixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0U7SUFDRSx1QkFBdUI7RUFDekI7RUFDQTtJQUNFLHlCQUF5QjtFQUMzQjtBQUNGIiwic291cmNlc0NvbnRlbnQiOlsiLkFwcCB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLkFwcC1sb2dvIHtcbiAgaGVpZ2h0OiA0MHZtaW47XG4gIHBvaW50ZXItZXZlbnRzOiBub25lO1xufVxuXG5AbWVkaWEgKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IG5vLXByZWZlcmVuY2UpIHtcbiAgLkFwcC1sb2dvIHtcbiAgICBhbmltYXRpb246IEFwcC1sb2dvLXNwaW4gaW5maW5pdGUgMjBzIGxpbmVhcjtcbiAgfVxufVxuXG5oZWFkZXIgLnN1YnJlZGRpdF9pbnB1dCB7XG4gIC8qIGRpc3BsYXk6IGlubGluZS1ibG9jazsgKi9cbiAgLyogY29sb3I6ICNGM0YzRjM7ICovXG4gIC8qIGZvbnQtc2l6ZTogMzJweDsgKi9cbiAgLyogZm9udC13ZWlnaHQ6IDYwMDsgKi9cbiAgLyogZm9udC1zdHlsZTogaXRhbGljOyAqL1xuICAvKiB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOyAqL1xuICBmb250LXNpemU6IDUwcHg7XG4gIGJhY2tncm91bmQ6IG5vbmU7XG4gIGJvcmRlcjogbm9uZTtcbiAgb3V0bGluZTogbm9uZTtcbiAgYXBwZWFyYW5jZTogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xufVxuXG4uQXBwLWhlYWRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XG4gIC8qIG1pbi1oZWlnaHQ6IDEwMHZoOyAqL1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgZm9udC1zaXplOiBjYWxjKDEwcHggKyAydm1pbik7XG4gIC8qIGNvbG9yOiB3aGl0ZTsgKi9cbn1cblxuLkFwcC1saW5rIHtcbiAgY29sb3I6ICM2MWRhZmI7XG59XG5cbkBrZXlmcmFtZXMgQXBwLWxvZ28tc3BpbiB7XG4gIGZyb20ge1xuICAgIHRyYW5zZm9ybTogcm90YXRlKDBkZWcpO1xuICB9XG4gIHRvIHtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSgzNjBkZWcpO1xuICB9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style></head>
+<body class="">
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Main -->
+                <div id="main">
+                    <div class="inner">
+
+                        <!-- Header -->
+                            <header id="header">
+                                <a href="index.html" class="logo"><img src="https://logodownload.org/wp-content/uploads/2018/02/reddit-logo-16.png" height="30" alt="" srcset=""> <strong>Reddit</strong> </a>
+                                <!-- <ul class="icons">
+                                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                    <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+                                    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                    <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+                                </ul> -->
+                            </header>
+
+                        <!-- Content -->
+
+                            
+                        <div ><div><header class="main"><h1>r/<input class="subreddit_input" value="depression"></h1></header><section><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/circinia</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Regular check-in post, with information about our rules and wikis </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Indication or None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> Welcome to /r/depression's check-in post - a place to take a moment and share what is going on and how you are doing. If you have an accomplishment you want to talk about (these shouldn't be standalone posts in the sub as they violate the "role model" rule, but are welcome here), or are having a tough time but prefer not to make your own post, this is a place you can share.
+
+-----
+
+Our subreddit rules are located in the sidebar (you can also always access them at /r/depression/about/rules) - since all of them exist for important safety reasons, we ask everyone here to read and follow them. Please click 'report' on any harmful content you see here - we always want to know and deal as soon as we can.
+
+We also have several wikis there for help with finding and giving support:
+
+/r/depression/wiki/what_is_depression provides guidance about what is and isn't a depressive disorder, guidance on the complex nature of the illnesses that are usually grouped under the "depression" label, and redirect information for common off-topic issues.
+
+/r/depression/wiki/giving_help offers information on the nature and value of peer support for mental-health issues in general, and lots of guidance for learning what is -- and isn't -- usually helpful in giving peer support.
+
+YSK that the types of rule violations that we most frequently see interfering with people getting safe and relevant support here are:
+
+- People breaking the private contact rule. You should never trust anyone who tries to get you into a private conversation in response to a post here. See /r/depression/wiki/private_contact
+
+- "I'm here to help" posts. This shows that you don't understand the most basic principles of peer support, especially selectivity. The "giving help" wiki explains more about this.
+
+- Role modelling, i.e. "achievement" or "advice" posts. This is an expert-free zone -- that's what peer support means (rule 5). We know that "internet culture" celebrate not just bragging about your achievements but bragging about your good intentions. Nothing like that is ever acceptable here.
+
+- Content that's more about 'making a statement' or casually polling the sub than seeking personal support (or, in a comment, giving it) (rules 1, 2 and 10).
+
+- Off-topic posts about difficult situations or circumstances, including interpersonal losses. Grief, sadness, anger, and other difficult emotions are not mental illnesses. The "what is depression" wiki has suggestions for other places to post about these issues, which are 100% valid and serious but inappropriate here.<br><br><td style="color: white;"></td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/SQLwitch</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Our most-broken and least-understood rules is "helpers may not invite private contact as a first resort", so we've made a new wiki to explain it </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> We understand that most people who reply immediately to an OP with an invitation to talk privately  mean only to help, but this type of response usually leads to either disappointment or disaster.  it usually works out quite differently here than when you say "PM me anytime" in a casual social context.  
+
+We have huge admiration and appreciation for the goodwill and good citizenship of so many of you who support others here and flag inappropriate content - even more so because we know that so many of you are struggling yourselves.  We're hard at work behind the scenes on more information and resources to make it easier to give and get quality help here - this is just a small start.  
+
+Our new wiki page explains in detail why it's much better to respond in public comments, at least until you've gotten to know someone.  It will be maintained at /r/depression/wiki/private_contact, and the full text of the current version is below.
+
+*****
+
+###Summary###
+
+**Anyone who, while acting as a helper, invites or accepts private contact (I.e. PMs, chat, or any kind of offsite communication) early in the conversion is showing either bad intentions or bad judgement.  Either way, it's unwise to trust them.** 
+
+
+"PM me anytime" seems like a kind and generous offer. And it might be perfectly well-meaning, but, unless and until a solid rapport has been established, it's just not a wise idea.  Here are some points to consider before you offer or accept an invitation to communicate privately.
+
+* **By posting supportive replies publicly, you'll help more people than just the OP. If your responses are of good quality, you'll educate and inspire other helpers.** [The 1-9-90 rule](https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture\)) applies here as much as it does anywhere else on the internet.  
+
+* People who are struggling with serious mental-health issues often (justifiably) have a low tolerance for disappointment and a high-level of ever-changing emotional need. **Unless the helper is able to make a 100% commitment to be there for them in every way, for as long as necessary, offering a personal inbox as a resource is likely to do more harm than good.** This is why mental-health crisis-line responders usually don't give their names and callers aren't allowed to request specific responders.  It's much healthier and safer for the callers to develop a relationship with the agency as a whole.  Analogously, it's much safer and healthier for our OPs to develop a relationship with the community as a whole.  Even trained responders are generally not allowed to work high-intensity situations alone.  It's partly about availability, but it's mostly about wider perspective and preventing compassion fatigue. 
+
+* **If a helper gets in over their head with someone whose mental-health issues (including suicidality, which is often comorbid with depression) escalate, in a PM conversation it's much harder for others, including the /r/depression and /r/SuicideWatch moderators to help**.  (Contrary to common assumptions, moderators can't see or police PMs.)  
+
+* In our observation over many years, the people who say "PM me" the most are consistently the ones with the least understanding of mental-health issues and mental-health support. We all have gaps in our knowledge and in our ability to communicate effectively.  Community input mitigates these limitations. **There's no reason why someone who's truly here to help would want to hide their responses from community scrutiny**.  If helpers are concerned about their own privacy, keep in mind that self-disclosure, when used supportively, is more about the feelings than the details, and that we have no problem here with the use of alt/throwaway accounts, and have no restrictions on account age or karma.  
+
+*  We all know the internet is used by some people to exploit or abuse others.  These people *do* want to hide their deceptive and manipulative responses from everyone except their victims. There are many of them who specifically target those who are vulnerable because of mental-health issues. **If a helper invites an OP to talk privately and gives them a good, supportive experience, they've primed that person to be more vulnerable to abusers.** This sort of cognitive priming tends to be particularly effective when someone's in a state of mental-health crisis, when people rely more on heuristics than critical reasoning.
+
+* If OPs want to talk privately, posting on a wide-open anonymous forum like reddit might not be the best option. Although we don't recommend it, we do allow OPs to request private contact when asking for support. If you want to do this, please keep your expectations realistic, and to have a careful look at the history of anyone who offers to PM before opening up to them.<br><br><td style="color: white;"> </td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/ChewyBoiy</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Why do depressed people stop contacting people they care about without realizing it? </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I never understood this. I stopped contacting people that I WANTED to talk to. I'm looking for a reason why this happens if anyone happens to know.<br><br><td style="color: white;"> <span style="background-color:#A00">"We understand that most people who reply immediately to an OP with an invitation to talk privately mean only to help but this type of response usually leads to either disappointment or disaster</span>
+<span style="background-color:#A00">it usually works out quite differently here than when you say PM me anytime in a casual social context</span>
+<span style="background-color:#A00">\n\nWe have huge admiration and appreciation for the goodwill and good citizenship of so many of you who support others here and flag inappropriate content even more so because we know that so many of you are struggling yourselves</span>
+<span style="background-color:#A00">Were hard at work behind the scenes on more information and resources to make it easier to give and get quality help here this is just a small start</span>
+<span style="background-color:#A00">\n\nOur new wiki page explains in detail why its much better to respond in public comments at least until youve gotten to know someone</span>
+<span style="background-color:#A00">It will be maintained at rdepressionwikiprivatecontact and the full text of the current version is below</span>
+<span style="background-color:#A00">\n\n\n\nSummary\n\nAnyone who while acting as a helper invites or accepts private contact I</span>
+<span style="background-color:#A00">e</span>
+<span style="background-color:#A00">PMs chat or any kind of offsite communication early in the conversion is showing either bad intentions or bad judgement</span>
+<span style="background-color:#A00">Either way its unwise to trust them</span>
+<span style="background-color:#A00">\n\n\nPM me anytime seems like a kind and generous offer</span>
+<span style="background-color:#A00">And it might be perfectly wellmeaning but unless and until a solid rapport has been established its just not a wise idea</span>
+<span style="background-color:#A00">Here are some points to consider before you offer or accept an invitation to communicate privately</span>
+<span style="background-color:#A00">\n\n By posting supportive replies publicly youll help more people than just the OP</span>
+<span style="background-color:#A00">If your responses are of good quality youll educate and inspire other helpers</span>
+<span style="background-color:#A00">The 1990 rulehttpsen</span>
+<span style="background-color:#A00">wikipedia</span>
+<span style="background-color:#A00">orgwiki125ruleInternetculture applies here as much as it does anywhere else on the internet</span>
+<span style="background-color:#A00">\n\n People who are struggling with serious mentalhealth issues often justifiably have a low tolerance for disappointment and a highlevel of everchanging emotional need</span>
+<span style="background-color:#A00">Unless the helper is able to make a 100 commitment to be there for them in every way for as long as necessary offering a personal inbox as a resource is likely to do more harm than good</span>
+<span style="background-color:#A00">This is why mentalhealth crisisline responders usually dont give their names and callers arent allowed to request specific responders</span>
+<span style="background-color:#A00">Its much healthier and safer for the callers to develop a relationship with the agency as a whole</span>
+<span style="background-color:#A00">Analogously its much safer and healthier for our OPs to develop a relationship with the community as a whole</span>
+<span style="background-color:#A00">Even trained responders are generally not allowed to work highintensity situations alone</span>
+<span style="background-color:#A00">Its partly about availability but its mostly about wider perspective and preventing compassion fatigue</span>
+<span style="background-color:#A00">\n\n If a helper gets in over their <span style="background-color:#0A0">head with someone whose mentalhealth issues including suicidality <span style="background-color:#A50">which is often comorbid with depression escalate in <span style="background-color:#00A">a PM conversation its much harder for others <span style="background-color:#A0A">including the rdepression and rSuicideWatch moderators to help</span></span></span></span></span>
+<span style="background-color:#A00">Contrary to common assumptions moderators cant see or police PMs</span>
+<span style="background-color:#A00">\n\n In our observation over many years the people who say PM me the most are consistently the ones with the least understanding of mentalhealth issues and mentalhealth support</span>
+<span style="background-color:#A00">We all have gaps in our knowledge and in our ability to communicate effectively</span>
+<span style="background-color:#A00">Community input mitigates these limitations</span>
+<span style="background-color:#A00">Theres no reason why someone whos truly here to help would want to hide their responses from community scrutiny</span>
+<span style="background-color:#A00">If helpers are concerned about their own privacy keep in mind that selfdisclosure when used supportively is more about the feelings than the details and that we have no problem here with the use of altthrowaway accounts and have no restrictions on account age or karma</span>
+<span style="background-color:#A00">\n\n We all know the internet is used by some people to exploit or abuse others</span>
+<span style="background-color:#A00">These people do want to hide their deceptive and manipulative responses from everyone except their victims</span>
+<span style="background-color:#A00">There are many of them who specifically target those who are vulnerable because of mentalhealth issues</span>
+<span style="background-color:#A00">If a helper invites an OP to talk privately and gives them a good supportive experience theyve primed that person to be more vulnerable to abusers</span>
+<span style="background-color:#A00">This sort of cognitive priming tends to be particularly effective when someones in a state of mentalhealth crisis when people rely more on heuristics than critical reasoning</span>
+<span style="background-color:#A00">\n\n If OPs want to talk privately posting on a wideopen anonymous forum like reddit might not be the best option</span>
+<span style="background-color:#A00">Although we dont recommend it we do allow OPs to request private contact when asking for support</span>
+<span style="background-color:#A00">If you want to do this please keep your expectations realistic and to have a careful look at the history of anyone who offers to PM before opening up to them</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/soberladd</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Honestly i just kinda gave up on life. </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Indication or None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> Nothing feels like its worth any effort anymore. Im just existing and doing the bare minimum amount if work that it takes to make ends meet and even that seems pointless to me. I just dont belong on this planet. I tried to fine my place in this world but there is none. Im a stranger and out of place wherever i go.  I dont belong and i never will. Not even sad about it rn i just feel empty.<br><br><td style="color: white;"> <span style="background-color:#A00">"I never understood this</span>
+<span style="background-color:#A00">I stopped contacting people that I WANTED to talk to</span>
+<span style="background-color:#A00">Im looking for a reason why this happens if anyone happens to know</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Hopeful-Touch-6355</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Incapable of keeping friends </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> Yep, that’s me. Literally every significant friendship I’ve ever had has been flushed down the drain with ME being the common denominator. Even my husband has stayed friends with people who no longer want to associate with me. I’m afraid to get close to anyone because they eventually find out who I really am. And no one understands enough to stick around. I wish I was normal. I wish someone loved and cared about me enough to understand me. My god this is tough<br><br><td style="color: white;"> <span style="background-color:#0A0">"Nothing feels like its worth any effort anymore</span>
+<span style="background-color:#0A0">Im just existing and doing the bare minimum amount if work that it takes to make ends meet and even that seems pointless to me</span>
+<span style="background-color:#A00">I just <span style="background-color:#0A0">dont belong <span style="background-color:#A50">on <span style="background-color:#00A">this <span style="background-color:#A0A">planet</span></span></span></span></span>
+<span style="background-color:#A00">I tried to fine my place in this world but there is none</span>
+<span style="background-color:#A00">Im a stranger and out of place wherever i go</span>
+<span style="background-color:#A00">I dont <span style="background-color:#0A0">belong and <span style="background-color:#A50">i <span style="background-color:#00A">never <span style="background-color:#A0A">will</span></span></span></span></span>
+<span style="background-color:#A00">Not even <span style="background-color:#0A0">sad about <span style="background-color:#A50">it rn <span style="background-color:#00A">i just <span style="background-color:#A0A">feel empty</span></span></span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/anonthymous</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>27 and exhausted </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I’ve fought this for so long. I’ve fought major depression for so long and through so much.
+
+I got sober, went back on medication, left a bad relationship, got a cat, went back to therapy, met an amazing partner, got promoted at work, and I just… crashed.
+
+I dread waking up. I put off getting up as long as I can because it’s physically painful to lift myself out of bed.
+
+I feed the cat, take the meds I’m prescribed, put on whatever pants and sweater are closest, and go to work.
+
+Work is okay. I like my coworkers. The work itself is alright. It’s a distraction. I feel so overwhelmed by exhaustion all throughout the day, to the extent that it becomes difficult to keep my eyes open.
+
+I get home, feed the cat, and go straight to bed. I struggle to even make myself food or shower. I used to dedicate time to preparing myself meals, exercising, even being creative or seeing my friends, but all of that is just more than I can handle now.
+
+I lie here and so desperately want to do more or be more. I wanted to be a musician, I wanted to be creative and put something out into the world that moved people. I can’t even stay motivated enough to sing anymore or practice my instruments, and here I thought I could tour with my band and grow some actual following.
+
+If not that, I just want to know who I am or who I can be. I want to feel like something I do matters. Yet, I’m too tired to do anything. I’m so exhausted all the time. I want to make improvements and try to figure out how to be happy, but I’m so tired. I don’t want to be tired anymore.<br><br><td style="color: white;"> <span style="background-color:#A00">"Yep that’s me</span>
+<span style="background-color:#A00">Literally every significant friendship I’ve ever had has been flushed down the drain with ME being the common denominator</span>
+<span style="background-color:#A00">Even my husband has stayed friends with people who no longer want to associate with me</span>
+<span style="background-color:#A00">I’m afraid to get close to anyone because they eventually find out who I really am</span>
+<span style="background-color:#A00">And no one understands enough to stick around</span>
+<span style="background-color:#A00">I <span style="background-color:#0A0">wish <span style="background-color:#A50">I <span style="background-color:#00A">was <span style="background-color:#A0A">normal</span></span></span></span></span>
+<span style="background-color:#A00">I wish someone loved and cared about me enough to understand me</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Smexy_Zarow</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I kinda feel ready to just go outside, lay down and freeze to death. </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I wonder if it would be a peaceful death. Sure i would shake a lot and my fingers, ears, nose, and limbs would literally feel nothing but pain but I think after an hour or two I'd lose feeling and feel a nice flow of warmth as my body gives out.
+
+I wish I had someone close that I could talk about this with. I don't want a stranger to help out but I just hope writing this fills that want. I sometimes want to break down but I don't have the energy. I'll probably remove this when I wake up. Goodnight and I love you.<br><br><td style="color: white;"> <span style="background-color:#A00">"I’ve fought this for so long</span>
+<span style="background-color:#A00">I’ve fought major <span style="background-color:#0A0">depression for <span style="background-color:#A50">so long <span style="background-color:#00A">and through <span style="background-color:#A0A">so much</span></span></span></span></span>
+<span style="background-color:#A00">\n\nI got sober went back on <span style="background-color:#0A0">medication left a bad relationship got <span style="background-color:#A50">a cat went back to therapy <span style="background-color:#00A">met an amazing partner got promoted <span style="background-color:#A0A">at work and I just… crashed</span></span></span></span></span>
+<span style="background-color:#A00">\n\nI dread waking up</span>
+<span style="background-color:#A00">I put off getting up as long as I can because it’s physically painful to lift myself out of bed</span>
+<span style="background-color:#A00">\n\nI feed the cat take the meds I’m prescribed put on whatever pants and sweater are closest and go to work</span>
+<span style="background-color:#A00">\n\nWork is okay</span>
+<span style="background-color:#A00">I like my coworkers</span>
+<span style="background-color:#A00">The work itself is alright</span>
+<span style="background-color:#A00">It’s a distraction</span>
+<span style="background-color:#A00">I feel so overwhelmed by exhaustion all throughout the day to the extent that it becomes difficult to keep my eyes open</span>
+<span style="background-color:#A00">\n\nI get home feed the cat and go straight to bed</span>
+<span style="background-color:#0A0">I struggle to even make <span style="background-color:#A0A">myself food or shower</span></span>
+<span style="background-color:#0A0">I used to dedicate time to preparing myself meals exercising <span style="background-color:#A50">even being creative or seeing my friends but all of <span style="background-color:#A0A">that is just more than I can handle now</span></span></span>
+<span style="background-color:#0A0">\n\nI lie here and so desperately want to do more or be more</span>
+<span style="background-color:#A00">I wanted to be a <span style="background-color:#0A0">musician I wanted to <span style="background-color:#A50">be creative and put <span style="background-color:#00A">something out into the <span style="background-color:#A0A">world that moved people</span></span></span></span></span>
+<span style="background-color:#0A0">I can’t even stay motivated enough to <span style="background-color:#A50">sing anymore or practice my instruments and <span style="background-color:#00A">here I thought I could tour with <span style="background-color:#A0A">my band and grow some actual following</span></span></span></span>
+<span style="background-color:#A00">\n\nIf not that I <span style="background-color:#A50">just want to know <span style="background-color:#00A">who I am or <span style="background-color:#A0A">who I can be</span></span></span></span>
+<span style="background-color:#0A0">I want to feel like <span style="background-color:#A0A">something I do matters</span></span>
+<span style="background-color:#A00">Yet I’m too <span style="background-color:#0A0">tired to <span style="background-color:#A0A">do anything</span></span></span>
+<span style="background-color:#A00">I’m so exhausted all the time</span>
+<span style="background-color:#A0A">I want to make improvements and try to figure out how to be happy but I’m so tired</span>
+<span style="background-color:#A00">I don’t <span style="background-color:#0A0">want to <span style="background-color:#A50">be tired <span style="background-color:#A0A">anymore</span></span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/ZedZeZeo</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I ruined a friendship that I was hoping would last. I wish I could stop ruining everything </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> Ignore me. Just venting sorry<br><br><td style="color: white;"> <span style="background-color:#A00">"I wonder <span style="background-color:#0A0">if it <span style="background-color:#A50">would be <span style="background-color:#00A">a peaceful <span style="background-color:#A0A">death</span></span></span></span></span>
+<span style="background-color:#00A">Sure i would shake a lot and my fingers ears nose and limbs would literally feel nothing but pain but I think after an hour or two Id lose feeling and feel a nice flow of warmth as my body gives out</span>
+<span style="background-color:#A00">\n\nI wish I had someone close that I could talk about this with</span>
+<span style="background-color:#A00">I dont want a stranger to help out but I just hope writing this fills that want</span>
+<span style="background-color:#A00">I sometimes want to break down <span style="background-color:#0A0">but I dont have the energy</span></span>
+<span style="background-color:#A00">Ill probably remove this when I wake up</span>
+<span style="background-color:#A00">Goodnight and I love you</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/screamee</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Someone stole my PSP when I was a kid, still miss the darn thing </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Indication or None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> never noticed it was gone until like years later when I wanted to play with it again, all the games were missing from it. sad times<br><br><td style="color: white;"> <span style="background-color:#A00">"Ignore me</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/ChemicallyPure</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Why do people get pissed off when I treat them the way they treat me? </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Indication or None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I try my best to treat people as kindly as I can and feel absolutely awful when I've hurt someone. I've been trying my whole life to "treat others how you want to be treated" and I've noticed that a lot of people don't follow that guideline. I think I understand why people give up on it because "why would I be nice to someone who isn't nice to me". I've realized I've hurt people and I feel great shame and anger towards myself for doing so. The people I hurt were rude to me, so I insulted them and immediately felt bad. It doesn't matter how much I appologize to people, it doesn't matter how many times I punish myself for them, they don't forgive me. Why do I have to keep trying to be kind to people when they don't do the same for me? Do they take pleasure knowing that I've cut myself for them? I don't know what the world wants from me anymore and I don't really feel like living in it anymore. I feel like a shitty person who deserves to go to hell.<br><br><td style="color: white;"> <span style="background-color:#A00">"never noticed it was gone until like years later when I wanted to play with it again all the games were missing from it</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/CringeFilter</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I officially have no friends left </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> Sad how I have to make a throwaway account to post this.  All my friends are gone.  They are sick and tired of me constantly asking “are you ok?” “how are you?” because that’s all I can say right now.  I unfortunately had to leave my job because of bullying and rumors that management ignores, all of my college classes are focused on the professor and less so on interacting with other students, and all of my other now former friends subtly know I have lost my conversational skills.  I have nothing left.<br><br><td style="color: white;"> <span style="background-color:#A00">"I try my best to treat people as kindly as I can and feel absolutely awful when Ive hurt someone</span>
+<span style="background-color:#A00">Ive been trying my whole life to treat others how you want to be treated and Ive noticed that a lot of people dont follow that guideline</span>
+<span style="background-color:#A00">I think I understand why people give up on it because why would I be nice to someone who isnt nice to me</span>
+<span style="background-color:#A00">Ive realized Ive hurt <span style="background-color:#0A0">people and I feel <span style="background-color:#A50">great shame and <span style="background-color:#00A">anger towards myself <span style="background-color:#A0A">for doing so</span></span></span></span></span>
+<span style="background-color:#A00">The people I hurt were rude to me so I insulted them and immediately felt bad</span>
+<span style="background-color:#A00">It doesnt matter how much I appologize to people it doesnt matter how many times I punish myself for them they dont forgive me</span>
+<span style="background-color:#A00">Why do I have to keep trying to be kind to people when they dont do the same for me Do they take pleasure knowing that Ive cut myself for them I dont know what the world wants from me anymore and I dont really feel like living in it anymore</span>
+<span style="background-color:#A00">I feel like <span style="background-color:#0A0">a shitty person <span style="background-color:#A50">who deserves <span style="background-color:#00A">to go <span style="background-color:#A0A">to hell</span></span></span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Rageanoid2</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I just want to die </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Ideation type 2</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I'm tired. Really tired. Doubling my anti depressant dosage gave 4 days of not feeling suicidal. 4 days. Idk what to do anymore. Meds can't make me happy, people can't make me happy, video games can't make me happy, hobbies can't make me happy. I'm just tired.<br><br><td style="color: white;"> <span style="background-color:#A00">"Sad how I have to make a throwaway account to post this</span>
+<span style="background-color:#A0A">All my friends are gone</span>
+<span style="background-color:#A00">They are sick and tired of me constantly asking “are you ok” “how are you” because that’s all I can say right now</span>
+<span style="background-color:#A00">I unfortunately had to leave my job because of bullying and rumors that management ignores all of my college classes are focused on the professor and less so on interacting with other students and all of my other now former friends subtly know I have lost my conversational skills</span>
+<span style="background-color:#A00">I have <span style="background-color:#A0A">nothing left</span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/imnotcreative_0</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I can’t bring myself to do anything but sleep anymore. </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I lost all of my motivation. This weight on my chest won’t go away. Even when I was at my worst, I was able to force myself to get up, but I can’t do anything anymore. I don’t even feel anxious anymore. I just feel miserable and/or numb.<br><br><td style="color: white;"> </td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/notrecommended0805</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I just need someone to tell me I’m necessary to them. </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> Just so I feel like I’m still needed here. That’s all.<br><br><td style="color: white;"> <span style="background-color:#A00">"I lost <span style="background-color:#0A0">all <span style="background-color:#A50">of <span style="background-color:#00A">my <span style="background-color:#A0A">motivation</span></span></span></span></span>
+<span style="background-color:#A00">This weight on my chest won’t go away</span>
+<span style="background-color:#A00">Even when I was at <span style="background-color:#0A0">my worst I was able <span style="background-color:#A50">to force myself to <span style="background-color:#00A">get up but I <span style="background-color:#A0A">can’t do anything anymore</span></span></span></span></span>
+<span style="background-color:#A00">I don’t even <span style="background-color:#A0A">feel anxious anymore</span></span>
+<span style="background-color:#A00">I just <span style="background-color:#0A0">feel miserable <span style="background-color:#A50">andor <span style="background-color:#A0A">numb</span></span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Jazzlike_Bus_1879</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Daydreaming or just the usual? </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Ideation type 1</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> So, I've been alone in my thoughts before, it's not always nice but .. it's there. However, I looked back at an old diary and I found an entry that still emotionally sits with me to this day. The idea was not really of dying but escaping to somewhere where I believe I would be happier and have better experiences. I used to be religious for context but I used to pray to maybe die and reincarnate in a world that's like one of my favorite shows at the time. The idea that being in a world of death but true and honest people was better than my current reality.   
+I found myself laying in bed for hours just... daydreaming? making up scenarios and getting lost in them but I'm still awake. It kinda affected my daily functions at this point and I'm not really sure what to do at this point. It's like I know this isn't really the best option to cope but there really isn't much else. I get stressed or upset and my brain just kinda ... takes over putting a blindfold over my eyes.  
+I'm sorry if this isn't really for r/depression, I am just kinda curious if anyone else experiences this because I'm not even too sure if it counts as me wanting to die.<br><br><td style="color: white;"> <span style="background-color:#A00">"Just so I feel like I’m still needed here</span>
+<span style="background-color:#A00">That’s all</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/onlyhuman2468</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Only human </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I felt different my whole life, I was diagnosed with bi polar depression. I hate taking pills even though I need them.  And I haven't taken them since the summer, I just wish I would disappear and people would forget me, because all I cause is pain in everyones life. I hate living a fake life, when I all really want to do is leave and never come back. When will I stop staring at the ceiling thinking and feeling nothing. I am loved but I do not feel loved, I hate looking at my lifeless eyes.  I hope this is okay to say because I am new at this.<br><br><td style="color: white;"> <span style="background-color:#A00">"So Ive been alone in my thoughts <span style="background-color:#A0A">before its not always nice but</span></span>
+<span style="background-color:#A00">its there</span>
+<span style="background-color:#A00">However I looked back at an old diary and I found an entry that still emotionally sits with me to this day</span>
+<span style="background-color:#A00">The idea was not really <span style="background-color:#0A0">of dying but escaping to <span style="background-color:#A50">somewhere where I believe <span style="background-color:#00A">I would be happier <span style="background-color:#A0A">and have better experiences</span></span></span></span></span>
+<span style="background-color:#A00">I used to be religious for <span style="background-color:#0A0">context but I used to pray <span style="background-color:#A50">to maybe die and reincarnate in <span style="background-color:#00A">a world thats like one of <span style="background-color:#A0A">my favorite shows at the time</span></span></span></span></span>
+<span style="background-color:#A00">The idea that being <span style="background-color:#0A0">in a world of <span style="background-color:#A50">death but true and <span style="background-color:#00A">honest people was better <span style="background-color:#A0A">than my current reality</span></span></span></span></span>
+<span style="background-color:#A00">\nI found <span style="background-color:#0A0">myself laying <span style="background-color:#A50">in bed <span style="background-color:#00A">for hours <span style="background-color:#A0A">just</span></span></span></span></span>
+<span style="background-color:#A00">daydreaming making up scenarios and <span style="background-color:#0A0">getting lost in them <span style="background-color:#A0A">but Im still awake</span></span></span>
+<span style="background-color:#A00">It kinda affected my daily functions at this point and Im not really sure what to do at this point</span>
+<span style="background-color:#A00">Its like I know this isnt really the best <span style="background-color:#A0A">option to cope but there really isnt much else</span></span>
+<span style="background-color:#A00">I get stressed or upset and my brain just kinda</span>
+<span style="background-color:#0A0">takes over putting a <span style="background-color:#A0A">blindfold over my eyes</span></span>
+<span style="background-color:#A00">\nIm sorry if this isnt really for <span style="background-color:#0A0">rdepression I am just kinda curious if <span style="background-color:#A50">anyone else experiences this because Im <span style="background-color:#00A">not even too sure if it <span style="background-color:#A0A">counts as me wanting to die</span></span></span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Harry_Callahan_sfpd</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Seriously depressed 48-year-old guy needing some advice/guidance on how best to proceed? </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> Hello,
+
+I’m 48 and have suffered from dysthymia (long-term) depression for several decades now. My depression arose initially from a social anxiety problem that caused me to basically withdraw from and hide from life starting in my late teens.
+
+I also have been enduring a chronic pain condition due to my having two bad hips (a problem that arose during my teenage years but which has progressively gotten worse).
+
+I feel very badly nowadays, and I don’t see a viable way for me to improve my situation either short-term or long-term, as I am very poor, do not work a regular job, and currently live with my mother and stepfather in So. Cal. 
+
+Basically, since about age 17, I haven’t functioned very well because of the depression/anxiety problems. At the onset of those issues, I basically disengaged from normal life and have pretty much spent the subsequent decades running on fumes, doing just enough to get by but never excelling or being successful in any meaningful ways.
+
+I’m embarrassed about my being so unsuccessful in life, and I’m doubly embarrassed about my having to live at home at my age. I feel like an abject failure, basically, and I feel as if I am losing my ability to cope with my depression. 
+
+I’m seeing a therapist thru Telehealth via my Medi-Cal
+coverage, and I have also talked to my primary doctor about my situation. But nothing much seems to help. Just talk therapy and a prescription for Zoloft.
+
+I’m in both physical and psychological pain, and I really detest my daily life. Truthfully, my life up til now has not been that great overall — and that really pisses me off! 
+
+However, I’m not sure what to do. I need some real help, but I’m not sure what that means. I often have the urge to drive myself to the emergency room or to simply call 911 on myself, especially at night when things are quiet and dark and I over-fixate on how bad my life is and how much I hate it. 
+
+I very much feel trapped and almost suffocated by my current situation.
+
+However, I’m not even sure what I am asking here or what this post is meant to accomplish — perhaps it is just a vent and nothing more.
+
+But I feel as if I am reaching the point where I have to absolutely do something to really help myself or change my circumstances — because all that I am doing now is spinning my wheels.
+
+I have no prospects. I have no college degree. I have a very limited social life. I don’t earn much income (all I can do now is gig work). I need hip replacement surgery. And to make it all worse, I can’t afford to live on my own (I stay in the same bedroom that I did growing up).
+
+Daily life for me is very depressing.
+
+I would seriously appreciate any and all feedback that anyone cares to offer. I’m open to suggestions and all feedback. 
+
+Seriously, I’m a pretty miserable guy right now, and I hate myself for not being able to function better as an adult. I’ve really squandered myself in so many ways — and it hurts to realize that!<br><br><td style="color: white;"> <span style="background-color:#A00">"I felt different <span style="background-color:#0A0">my whole life <span style="background-color:#A50">I was diagnosed <span style="background-color:#00A">with bi <span style="background-color:#A0A">polar depression</span></span></span></span></span>
+<span style="background-color:#A00">I hate taking pills even though I need them</span>
+<span style="background-color:#A00">And I havent taken them since <span style="background-color:#0A0">the summer I just wish I <span style="background-color:#A50">would disappear and people would forget <span style="background-color:#00A">me because all I cause <span style="background-color:#A0A">is pain in everyones life</span></span></span></span></span>
+<span style="background-color:#A00">I hate living a <span style="background-color:#0A0">fake life when I <span style="background-color:#A50">all really want to <span style="background-color:#00A">do is leave and <span style="background-color:#A0A">never come back</span></span></span></span></span>
+<span style="background-color:#A00">When will I stop <span style="background-color:#0A0">staring at the ceiling <span style="background-color:#A0A">thinking and feeling nothing</span></span></span>
+<span style="background-color:#A00">I am loved but I do not feel loved I hate looking at my lifeless eyes</span>
+<span style="background-color:#A00">I hope this is okay to say because I am new at this</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Belatryx</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Suddenly feeling like you don’t deserve happiness.. </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> About once a month I feel this doom overwhelm me and it makes me feel like I don’t deserve happiness. I don’t deserve love. I deserve to suffer and be alone forever because of my past mistakes. I feel guilty and like a horrible person. These thoughts make me want to end relationships, friendships, and isolate.
+
+Yes I’m in therapy, but does anyone else relate to this and how do you cope?<br><br><td style="color: white;"> <span style="background-color:#A00">"Hello\n\nI’m 48 and have suffered from dysthymia longterm depression for several decades now</span>
+<span style="background-color:#A00">My depression arose initially from a social anxiety problem <span style="background-color:#0A0">that caused me to basically withdraw from and <span style="background-color:#A0A">hide from life starting in my late teens</span></span></span>
+<span style="background-color:#A00">\n\nI also have been enduring a chronic pain condition due to my having two bad hips a problem that arose during my teenage years but which has progressively gotten worse</span>
+<span style="background-color:#A00">\n\nI feel very badly nowadays and I don’t see a viable way for me to improve my situation either shortterm or longterm as I am very poor do not work a regular job and currently live with my mother and stepfather in So</span>
+<span style="background-color:#A00">Cal</span>
+<span style="background-color:#A00">\n\nBasically since about age <span style="background-color:#0A0">17 I haven’t functioned <span style="background-color:#A50">very well because of <span style="background-color:#A0A">the depressionanxiety problems</span></span></span></span>
+<span style="background-color:#A00">At the onset of those issues I basically disengaged from <span style="background-color:#0A0">normal life and have pretty much spent the subsequent decades <span style="background-color:#A50">running on fumes doing just enough to get by but <span style="background-color:#A0A">never excelling or being successful in any meaningful ways</span></span></span></span>
+<span style="background-color:#0A0">\n\nI’m embarrassed about my being so <span style="background-color:#A50">unsuccessful in life and I’m doubly <span style="background-color:#00A">embarrassed about my having to live <span style="background-color:#A0A">at home at my age</span></span></span></span>
+<span style="background-color:#A00">I feel like an abject <span style="background-color:#0A0">failure basically and I feel <span style="background-color:#A50">as if I am <span style="background-color:#00A">losing my ability to <span style="background-color:#A0A">cope with my depression</span></span></span></span></span>
+<span style="background-color:#A00">\n\nI’m seeing a therapist thru Telehealth via my MediCal\ncoverage and I have also talked to my primary doctor about my situation</span>
+<span style="background-color:#A00">But nothing much seems to help</span>
+<span style="background-color:#A00">Just talk therapy and a prescription for Zoloft</span>
+<span style="background-color:#A00">\n\nI’m in both <span style="background-color:#0A0">physical and psychological <span style="background-color:#A50">pain and I <span style="background-color:#00A">really detest my <span style="background-color:#A0A">daily life</span></span></span></span></span>
+<span style="background-color:#A00">Truthfully my life up til now <span style="background-color:#0A0">has not been that great <span style="background-color:#A50">overall — and that really <span style="background-color:#00A">pisses me off \n\nHowever I’m <span style="background-color:#A0A">not sure what to do</span></span></span></span></span>
+<span style="background-color:#A00">I need some real help but I’m not sure what that means</span>
+<span style="background-color:#A00">I often have the urge to drive myself to <span style="background-color:#0A0">the emergency room or to simply call 911 on <span style="background-color:#A50">myself especially at night when things are quiet and <span style="background-color:#00A">dark and I overfixate on how bad my <span style="background-color:#A0A">life is and how much I hate it</span></span></span></span></span>
+<span style="background-color:#A00">\n\nI very much <span style="background-color:#0A0">feel trapped and <span style="background-color:#A50">almost suffocated <span style="background-color:#00A">by my <span style="background-color:#A0A">current situation</span></span></span></span></span>
+<span style="background-color:#A00">\n\nHowever I’m not even sure what I am asking here or what this post is meant to accomplish — perhaps it is just a vent and nothing more</span>
+<span style="background-color:#A00">\n\nBut I feel as if I am reaching <span style="background-color:#0A0">the point where I have to absolutely do <span style="background-color:#A50">something to really help myself or change <span style="background-color:#00A">my circumstances — because all that I <span style="background-color:#A0A">am doing now is spinning my wheels</span></span></span></span></span>
+<span style="background-color:#A00">\n\nI have no prospects</span>
+<span style="background-color:#A00">I have no college degree</span>
+<span style="background-color:#A00">I have a very limited social life</span>
+<span style="background-color:#A00">I don’t earn much income all I can do now is gig work</span>
+<span style="background-color:#A00">I need hip replacement surgery</span>
+<span style="background-color:#A00">And to make it all <span style="background-color:#0A0">worse I can’t afford to <span style="background-color:#A50">live on my own I <span style="background-color:#00A">stay in the same bedroom <span style="background-color:#A0A">that I did growing up</span></span></span></span></span>
+<span style="background-color:#A00">\n\nDaily life <span style="background-color:#0A0">for me <span style="background-color:#A50">is <span style="background-color:#00A">very <span style="background-color:#A0A">depressing</span></span></span></span></span>
+<span style="background-color:#A00">\n\nI would seriously appreciate any and all feedback that anyone cares to offer</span>
+<span style="background-color:#A00">I’m open to suggestions and all feedback</span>
+<span style="background-color:#A00">\n\nSeriously I’m a pretty miserable <span style="background-color:#0A0">guy right now and I <span style="background-color:#A50">hate myself for not <span style="background-color:#00A">being able to function <span style="background-color:#A0A">better as an adult</span></span></span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/PYNKCYPHER</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>i relapse today </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> let me just say that i am a 20 year old woman who has intense anxiety, and has been in a major depressive disorder for a year now (since halloween last year). i had managed to break free from it for a month or so, where i was actually capable of leaving my room and interacting with my family and being partially motivated to do something i had fixated on. i've had depression since i was at least 13, and it's been hard to deal with.
+
+i had self-harmed previously in 2015, when i had been diagnosed with depression and anxiety. i then stopped, then relapsed in 2017. i had a very bad relapse that year where i had felt as if another being had been controlling me when i first relapsed. i managed to stop, but i still managed to feel depressed every two years typically. 2020 was awful for me. i moved in a toxic family member, my mother had died and my depression was ramping up, then had gotten kicked out. i moved in with another family member (a sister whom i'm very close to) in 2021. she has two kids. i'd like to say i have very bad anger management issues that i struggle to get help with, and it's incredibly hard to manage.
+
+anyway, i've been having a rough week for no particular reason besides my niece and nephew stressing me out. yesterday my niece threw a tantrum because i told her she wasn't allowed to go get her friend while i was babysitting (her mother said she wasn't allowed to) for like a half an hour. tbh the kids are rather manipulative towards me sometimes, and it becomes extremely stressful.
+
+so today, my nephew had been playing on his stepfathers gaming system all day, and everything was great until his mom (my sister) had gone to work. him &amp;amp; his sister were taking turns on another game after his mom told him to get off the switch. i told them to just switch after one of them fails, but he got angry at me and yelled at me. he then told me he wa going to leave to go to his friends house after his mother had told him to wait until the stepfather got home. i repeated this to him in a nice tone, and he yelled at me again &amp;amp; called me names. he said he was going to go to his friends anyway, and call the police on me because i had said to take turns on the game. then he mentioned that he was going to his frends to get a shotgun (which he later laughed off and said was a nerf gun but i don't believe him) and hearing things like that is incredibly stressful for me. i had gotten angry at him, as he's been treating me horribly for about a month or so while i have been, for the most part, nice to him, and it had caused a mental break that i could feel coming on for the past week.
+
+i had been sitting in the kitchen, and all the noises were bothering me a lot, so i attempted to cover my ears, but that didn't work and it caused me even more stress. in a fit, i had grabbed a knife from the chopping block and harmed myself several times. i haven't done that in 5 years and it just caused more anguish. i feel awful, i feel even worse for how i reacted by getting angry and harming myself in two different ways (i hit myself in the head often as a substitute, and i know that counts as self-harm but i consider these two different categories). i have no idea what to and just needed to speak this out into the world. if anyone actually reads all of this, thanks for caring. most people in my life probably wouldn't read all of this.<br><br><td style="color: white;"> <span style="background-color:#A00">"About once a month I feel this doom overwhelm me <span style="background-color:#A0A">and it makes me feel like I don’t deserve happiness</span></span>
+<span style="background-color:#A00">I don’t deserve love</span>
+<span style="background-color:#A00">I deserve to <span style="background-color:#0A0">suffer and be <span style="background-color:#A50">alone forever because <span style="background-color:#00A">of my <span style="background-color:#A0A">past mistakes</span></span></span></span></span>
+<span style="background-color:#A00">I feel <span style="background-color:#0A0">guilty and <span style="background-color:#A50">like a <span style="background-color:#00A">horrible <span style="background-color:#A0A">person</span></span></span></span></span>
+<span style="background-color:#A00">These thoughts make me want to <span style="background-color:#A50">end relationships friendships and isolate</span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Introverted_tea</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I feel so weak because I'm depressed </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I've had depression for more than half of my life. I feel very weak because of it. 
+
+My friend circle is small but none of them have it. My in laws just don't get depression. 
+
+I've been trying so hard to just function and pretend that I'm not depressed. When someone asks me how I am, I just lie and say 
+"I'm good thanks" because I can't be bothered explaining what's going on in my head. 
+
+I feel like I shouldn't be depressed. Why can't I just not be depressed...nighttime is tough again.<br><br><td style="color: white;"> <span style="background-color:#A00">"let me just say that i am <span style="background-color:#0A0">a 20 year old woman who has <span style="background-color:#A50">intense anxiety and has been in <span style="background-color:#00A">a major depressive disorder for a <span style="background-color:#A0A">year now since halloween last year</span></span></span></span></span>
+<span style="background-color:#A00">i had managed to break free from it for a month or so <span style="background-color:#0A0">where i was actually capable of leaving my room and interacting with my <span style="background-color:#A0A">family and being partially motivated to do something i had fixated on</span></span></span>
+<span style="background-color:#A00">ive had depression since <span style="background-color:#0A0">i was at least <span style="background-color:#A50">13 and its been <span style="background-color:#A0A">hard to deal with</span></span></span></span>
+<span style="background-color:#A00">\n\ni had selfharmed previously in <span style="background-color:#0A0">2015 when i had been <span style="background-color:#A0A">diagnosed with depression and anxiety</span></span></span>
+<span style="background-color:#A00">i then <span style="background-color:#0A0">stopped then <span style="background-color:#A50">relapsed <span style="background-color:#00A">in <span style="background-color:#A0A">2017</span></span></span></span></span>
+<span style="background-color:#A00">i had a very bad relapse that year where i had felt as if another being had been controlling me when i first relapsed</span>
+<span style="background-color:#A00">i managed to stop <span style="background-color:#0A0">but i still managed <span style="background-color:#A50">to feel depressed every <span style="background-color:#A0A">two years typically</span></span></span></span>
+<span style="background-color:#A00">2020 was awful for me</span>
+<span style="background-color:#A00">i moved in a toxic family <span style="background-color:#A50">member my mother had died and <span style="background-color:#00A">my depression was ramping up <span style="background-color:#A0A">then had gotten kicked out</span></span></span></span>
+<span style="background-color:#A00">i moved in with another family member a sister whom im very close to in 2021</span>
+<span style="background-color:#A00">she has two kids</span>
+<span style="background-color:#A00">id like to say i have very bad anger management issues that i struggle to get help with and its incredibly hard to manage</span>
+<span style="background-color:#A00">\n\nanyway ive been having a rough week for no particular reason besides my niece and nephew stressing me out</span>
+<span style="background-color:#A00">yesterday my niece threw a tantrum because i told her she wasnt allowed to go get her friend while i was babysitting her mother said she wasnt allowed to for like a half an hour</span>
+<span style="background-color:#A00">tbh the kids are rather manipulative towards me sometimes and it becomes extremely stressful</span>
+<span style="background-color:#A00">\n\nso today my nephew had been playing on his stepfathers gaming system all day and everything was great until his mom my sister had gone to work</span>
+<span style="background-color:#A00">him and his sister were taking turns on another game after his mom told him to get off the switch</span>
+<span style="background-color:#A00">i told them to just switch after one of them fails but he got angry at me and yelled at me</span>
+<span style="background-color:#A00">he then told me he wa going to leave to go to his friends house after his mother had told him to wait until the stepfather got home</span>
+<span style="background-color:#A00">i repeated this to him in a nice tone and he yelled at me again and called me names</span>
+<span style="background-color:#A00">he said he was going to go to his friends anyway and call the police on me because i had said to take turns on the game</span>
+<span style="background-color:#A00">then he mentioned that he was going to his frends to get a shotgun which he later laughed off and said was a nerf gun but i dont believe him and hearing things like that is incredibly stressful for me</span>
+<span style="background-color:#A00">i had gotten angry at him as hes been treating me horribly for about a month or so while i have been for the most part nice to him and it had caused a mental break that i could feel coming on for the past week</span>
+<span style="background-color:#A00">\n\ni had been sitting in the kitchen and all the noises were bothering me a lot so i attempted to cover my ears but that didnt work and it caused me even more stress</span>
+<span style="background-color:#A00">in a fit i <span style="background-color:#0A0">had grabbed a knife <span style="background-color:#A50">from the chopping <span style="background-color:#00A">block and harmed <span style="background-color:#A0A">myself several times</span></span></span></span></span>
+<span style="background-color:#A00">i havent done that <span style="background-color:#0A0">in 5 years <span style="background-color:#A50">and it just <span style="background-color:#A0A">caused more anguish</span></span></span></span>
+<span style="background-color:#A00">i feel awful i feel even worse for how <span style="background-color:#0A0">i reacted by getting angry and harming myself in <span style="background-color:#A50">two different ways i hit myself in the head <span style="background-color:#00A">often as a substitute and i know that counts <span style="background-color:#A0A">as selfharm but i consider these two different categories</span></span></span></span></span>
+<span style="background-color:#0A0">i have no idea what to and just needed to speak this out into the world</span>
+<span style="background-color:#A00">if anyone actually reads all of this thanks for caring</span>
+<span style="background-color:#00A">most people in my life probably wouldnt read all of this</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/darksoulslover69420</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>How to tell family you are depressed and suicidal? </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I don’t know how to break it to them. Any advice?<br><br><td style="color: white;"> <span style="background-color:#A00">"Ive had <span style="background-color:#0A0">depression for <span style="background-color:#A50">more than <span style="background-color:#00A">half of <span style="background-color:#A0A">my life</span></span></span></span></span>
+<span style="background-color:#A00">I feel very weak because of it</span>
+<span style="background-color:#A00">\n\nMy friend circle is small but none of them have it</span>
+<span style="background-color:#A00">My in laws just dont get depression</span>
+<span style="background-color:#A00">\n\nIve been trying <span style="background-color:#0A0">so hard to <span style="background-color:#A50">just function and <span style="background-color:#00A">pretend that Im <span style="background-color:#A0A">not depressed</span></span></span></span></span>
+<span style="background-color:#A00">When someone asks me how I am I just lie and say \nIm good thanks because I cant be bothered explaining whats going on in my head</span>
+<span style="background-color:#A00">\n\nI feel <span style="background-color:#0A0">like I <span style="background-color:#A50">shouldnt <span style="background-color:#00A">be <span style="background-color:#A0A">depressed</span></span></span></span></span>
+<span style="background-color:#A00">Why cant I <span style="background-color:#0A0">just not <span style="background-color:#A50">be depressed</span></span></span>
+<span style="background-color:#A00">nighttime is tough again</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/pearl_1111</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>So depressed I haven’t left my room for 2 days </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Indication or None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> 
+I feel so worthless and like I don’t matter to anyone. I have some friends but I don’t feel that close to them, I would call them low maintenance friends, but I just feel like I can’t speak to them or that I have the energy to want to. I was going to the gym and trying to better myself but now I’ve just fallen into a deep depression and can’t seem to get out of it. I suffer from anxiety and depression but normally manage it quite well, I just can’t bring myself to do anything at all lately. I have laid in my bed all day, slept a lot and I’m just so sad and I feel like tomorrow will be the same. 😔 I see everyone else be happy and it is killing me inside, I just want to be like them.
+
+My next psychology appointment is a month away, I tried antidepressants 2 weeks ago but had to stop after 1 week of taking them (with confirmation from my dr) as they were making me worse. I just don’t know what to do anymore.<br><br><td style="color: white;"> <span style="background-color:#A00">"I don’t know how to break it to them</span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Ok_Bet_8103</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I'm having an awful time </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> My mother died last year. Ever since everything has been spiraling out of control. Lost so many other people for different reasons. Some died. Some just couldn't be in my life anymore for various reasons. That's life. But right now I am trying so hard to not down 6-12 bottles of pills and I don't know what someone could say to me to help. I had an awful day today. Got a citation after being pulled over and I already can barely afford my bills. I need a permanent out from this world.<br><br><td style="color: white;"> <span style="background-color:#A00">"\nI feel so <span style="background-color:#0A0">worthless and <span style="background-color:#A50">like I <span style="background-color:#00A">don’t matter <span style="background-color:#A0A">to anyone</span></span></span></span></span>
+<span style="background-color:#A00">I have some friends but I don’t feel that close to them I would call them low maintenance friends but I just feel like I can’t speak to them or that I have the energy to want to</span>
+<span style="background-color:#A00">I was going to the gym and trying to better myself but now I’ve <span style="background-color:#0A0">just fallen into a deep depression and can’t seem to get out of it</span></span>
+<span style="background-color:#A00">I suffer from anxiety and depression but normally manage it quite well <span style="background-color:#0A0">I just can’t bring myself to do anything at all lately</span></span>
+<span style="background-color:#A00">I have laid in my bed all day slept a lot and I’m <span style="background-color:#A0A">just so sad and I feel like tomorrow will be the same</span></span>
+<span style="background-color:#A00">😔 I see everyone else be happy and it is killing me inside I just want to be like them</span>
+<span style="background-color:#A00">\n\nMy next psychology appointment is a month away I tried antidepressants 2 weeks ago but had to stop after 1 week of taking them with confirmation from my dr as they were making me worse</span>
+<span style="background-color:#A00">I just <span style="background-color:#0A0">don’t know <span style="background-color:#A50">what to <span style="background-color:#A0A">do anymore</span></span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Chance_Mirror7769</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>I genuinely feel like I’ll never get better </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I’m 21 years old. Ever since highschool I’ve been on this downward path. Actually scratch that. I’ve always been going downhill it’s just much more noticeable after highschool. All I do is smoke weed, go to work, then go home to my empty apartment. I avoid social interactions from my few friends because I’m so anxious they’ll see right through this idea that I’m ok. I’ve gone from 180lbs to 220 in a matter of two years. My parents pay half my rent with the promise that im going through school (I’m not) and when I do try to take classes I end up failing them. I’ve tried to get better but it ends up feeling futile as I’m just not a hard working or talented person so when I do try to become successful or atleast content I end up failing which puts me back right in my funk. At this point I’m just terrified to try. All I want to do is stay I’m my room, smoke weed, and watch Netflix. But there’s a part of me who knows I should be doing much more like the rest of my family. I just can’t and it kills me inside, which just makes it even harder. It’s like there’s two voices in my head, one saying do nothing, and one that’s says I’m destined for so much more. But I just always take the easy way and I don’t think it’s possible to retrain my brain to do anything different.<br><br><td style="color: white;"> <span style="background-color:#A00">"My mother <span style="background-color:#00A">died last <span style="background-color:#A0A">year</span></span></span>
+<span style="background-color:#A00">Ever since everything has been <span style="background-color:#A0A">spiraling out of control</span></span>
+<span style="background-color:#A00">Lost so <span style="background-color:#0A0">many other <span style="background-color:#A50">people for <span style="background-color:#00A">different <span style="background-color:#A0A">reasons</span></span></span></span></span>
+<span style="background-color:#A00">Some <span style="background-color:#A0A">died</span></span>
+<span style="background-color:#A00">Some just couldnt <span style="background-color:#0A0">be in <span style="background-color:#A50">my life <span style="background-color:#00A">anymore for <span style="background-color:#A0A">various reasons</span></span></span></span></span>
+<span style="background-color:#A00">Thats <span style="background-color:#0A0">life</span></span>
+<span style="background-color:#A00">But right now I am trying so hard to not down 612 bottles of pills and I dont know what someone could say to me to help</span>
+<span style="background-color:#A00">I had an awful day today</span>
+<span style="background-color:#A00">Got a citation after being pulled over and I already can barely afford my bills</span>
+<span style="background-color:#0A0">I need a <span style="background-color:#A50">permanent out from <span style="background-color:#A0A">this world</span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/paprikahoernchen</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>25 and tired </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">Behavourial or attempt</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> Ehm.. hello first of all. I'm 25, trans masc and live in germany. 
+
+Right now I'm not in job training, cause I kept struggling. My therapist had to go to the hospital early cause of her pregnancy and her temp replacement wont be avaible till january. 
+And only in february I have an appointment at an ADHS doctor. But I still have my meds, so thats okay. 
+
+One of my problems right now is that I'm lonely. Wish I had someone in my town to date or just go out together. But its not that easy to find queer people.
+
+But the biggest thing is: I wake up normally and I just feel empty. I dont want to do anything, dont look forward to anything. I sit at my pc, play games that give me just a little dopamine and that's it. 
+I would love to draw more but my executive dysfunction stops me. 
+I miss being a little happy. Miss being me.<br><br><td style="color: white;"> <span style="background-color:#A00">"I’m 21 years old</span>
+<span style="background-color:#A00">Ever since highschool I’ve been on this downward path</span>
+<span style="background-color:#A00">Actually scratch that</span>
+<span style="background-color:#A00">I’ve always been going downhill it’s just much more noticeable after highschool</span>
+<span style="background-color:#A00">All I do is smoke weed <span style="background-color:#0A0">go to work then go <span style="background-color:#A0A">home to my empty apartment</span></span></span>
+<span style="background-color:#A00">I avoid social interactions from my few friends because I’m so anxious they’ll see right through this idea that I’m ok</span>
+<span style="background-color:#A00">I’ve gone from 180lbs to 220 in a matter of two years</span>
+<span style="background-color:#A00">My parents pay half my rent with the promise that im going through school I’m not and when I do try to take classes I end up failing them</span>
+<span style="background-color:#0A0">I’ve tried to get better but it ends up feeling futile as I’m just not <span style="background-color:#A50">a hard working or talented person so when I do try to become successful or <span style="background-color:#A0A">atleast content I end up failing which puts me back right in my funk</span></span></span>
+<span style="background-color:#A00">At this <span style="background-color:#0A0">point I’m <span style="background-color:#A50">just terrified <span style="background-color:#A0A">to try</span></span></span></span>
+<span style="background-color:#A00">All I want to do is stay I’m <span style="background-color:#0A0">my room smoke weed and watch Netflix</span></span>
+<span style="background-color:#A00">But there’s a part of me who knows I should be doing much more like the rest of my family</span>
+<span style="background-color:#A00">I just can’t <span style="background-color:#0A0">and it kills <span style="background-color:#A50">me inside which <span style="background-color:#00A">just makes it <span style="background-color:#A0A">even harder</span></span></span></span></span>
+<span style="background-color:#A00">It’s like there’s two voices in my head one saying do nothing and one that’s says I’m destined for so much more</span>
+<span style="background-color:#0A0">But I just always take the easy way <span style="background-color:#A50">and I don’t think it’s possible to <span style="background-color:#A0A">retrain my brain to do anything different</span></span></span>
+</td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/Ok_Safety8707</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>Just Got 2 Weeks Off For Depression Episode… Now Feeling Guilty </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> I don’t need to dive into my specific symptoms but my depression has hit 
+a real deal high. I’m truly unable to get out of bed and go to work.
+
+I told my supervisor I needed to quit because I simply can’t do my job and she gave me 2 weeks of sick leave before quitting to see if I could work through this episode (I had a note from a psychiatrist describing my diagnosis). 
+
+I told a ~kinda~ close co worker that I was on 2 weeks of sick leave for mental health issues when she asked if I wanted to go out for drinks last night. 
+
+I’m now regretting sharing this information and questioning if this is common/acceptable or very unusual in the workplace. I know modern style bosses will allow “mental health days” every now and then but two weeks is a lot. 
+
+Im feeling guilty and wondering if my coworkers are resenting me for this.<br><br><td style="color: white;"> </td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div><div style="margin: 0px auto; width: 100%;"><span> Posted by : <strong> u/TheRealM3999</strong> &nbsp;<span> </span> </span> <span>   </span><div style="display: flex; gap: 10px;"><div><h3>My Honest Opinion </h3></div><div><p style="background-color: grey; color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;"></p></div><div><p style="background-color: rgb(245, 106, 106); color: white; margin: 1px; padding: 5px; font-size: 12px; border-radius: 10px;">None</p></div></div><div><source width="640" height="480" frameborder="0"></div><span> No one will ever be there for you, you're alone in this world no matter what people say, i know this from experience and how fucked up i am now, i dont want to be happy ever again, fuck that, im a loner by choice now and will commit at some point. People only "help" because they either want to learn about mental health and how it effects you, or to do their good deed for the day, i understand they think they care, but they always come first.<br><br><td style="color: white;"> </td><p> <br> <a href="#" target="_blank" class="button fit"><i class="fa fa-comments" aria-hidden="true"></i> Comments</a> </p> <hr class="major"> </span></div></section></div></div>
+
+                            <!-- <section>
+                                
+
+                                
+
+                                <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+                                <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+                                <hr class="major" />
+
+                                <h2>Interdum sed dapibus</h2>
+                                <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+                                <hr class="major" />
+
+                                <h2>Magna etiam veroeros</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+                                <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+                                <hr class="major" />
+
+                                <h2>Lorem aliquam bibendum</h2>
+                                <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+
+                            </section> -->
+
+                    </div>
+                </div>
+
+            <!-- Sidebar -->
+                <div id="sidebar" class="">
+                    <div class="inner" style="position: fixed; top: -467.383px;">
+
+                        <!-- Search -->
+                            <section id="search" class="alt">
+                                <form method="post" action="#">
+                                    <input type="text" name="query" id="query" placeholder="Search">
+                                </form>
+                            </section>
+
+                        <!-- Menu -->
+                            <nav id="menu">
+                                <header class="major">
+                                    <h2>Concept Color Codes</h2>
+                                </header>
+                                <ul style="display: flex;flex-direction:column;gap: 20px;">
+                                    <li>
+                                        <div style="display: flex;gap:20px">
+                                            <div style="background-color: #A00;width: 10px;"> &nbsp; </div>
+                                            &nbsp;
+                                            <div> Wish to be Dead</div>
+                                        </div>	
+                                    </li>
+
+                                        <li>
+                                            <div style="display: flex;gap:20px">
+                                                <div style="background-color: green;width: 10px;"> &nbsp; </div>
+                                                &nbsp;
+                                                <div> Non-Specific Active Suicidal Thoughts</div>
+
+                                            </div>
+                                            
+                                            
+                                            </li>
+
+                                            <li>
+                                                <div style="display: flex;gap:20px">
+                                                    <div style="background-color:yellow;width: 10px;"> &nbsp; </div>
+                                                    &nbsp;
+                                                    <div> Active Suicidal Ideation with Any Methods (Not Plan) without Intent to Act</div>
+    
+                                                </div>
+                                                
+                                                
+                                                </li>
+
+                                                <li>
+                                                    <div style="display: flex;gap:20px">
+                                                        <div style="background-color: blue;width: 10px;"> &nbsp; </div>
+                                                        &nbsp;
+                                                        <div>Active Suicidal Ideation with Some Intent to Act, without Specific Plan</div>
+        
+                                                    </div>
+                                                    
+                                                    
+                                                </li>
+                                                
+                                                <li>
+                                                    <div style="display: flex;gap:20px">
+                                                        <div style="background-color: purple;width: 10px;"> &nbsp; </div>
+                                                        &nbsp;
+                                                        <div> Active Suicidal Ideation with Specific Plan and Intent</div>
+        
+                                                    </div>
+                                                    
+                                                    
+                                                </li>
+                                    
+                            </ul></nav>
+
+                        <!-- Section -->
+                            <!-- <section>
+                                <header class="major">
+                                    <h2>Ante interdum</h2>
+                                </header>
+                                <div class="mini-posts">
+                                    <article>
+                                        <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                                    </article>
+                                    <article>
+                                        <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                                    </article>
+                                    <article>
+                                        <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                                    </article>
+                                </div>
+                                <ul class="actions">
+                                    <li><a href="#" class="button">More</a></li>
+                                </ul>
+                            </section> -->
+
+                        <!-- Section -->
+                            <!-- <section>
+                                <header class="major">
+                                    <h2>Get in touch</h2>
+                                </header>
+                                <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                                <ul class="contact">
+                                    <li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+                                    <li class="icon solid fa-phone">(000) 000-0000</li>
+                                    <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+                                    Nashville, TN 00000-0000</li>
+                                </ul>
+                            </section> -->
+
+                        <!-- Footer -->
+                            <!-- <footer id="footer">
+                                <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                            </footer> -->
+
+                    </div>
+                <a href="#sidebar" class="toggle">Toggle</a></div>
+
+        </div>
+
+    <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+
+</body></html>

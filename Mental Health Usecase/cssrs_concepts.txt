@@ -1,0 +1,5 @@
+1 Wish to be Dead
+2 Non-Specific Active Suicidal Thoughts
+3 Active Suicidal Ideation with Any Methods (Not Plan) without Intent to Act
+4 Active Suicidal Ideation with Some Intent to Act, without Specific Plan
+5 Active Suicidal Ideation with Specific Plan and Intent

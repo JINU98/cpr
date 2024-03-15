@@ -1,0 +1,4 @@
+1 [0,0,0,0,0] Indication_or_None
+2 [1,0,0,0,0] Ideation
+3 [1,1,0,0,0] Ideation
+4 [1,1,1,1,1] Behavior_or_Attempt

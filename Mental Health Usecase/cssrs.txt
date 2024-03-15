@@ -1,0 +1,29 @@
+1.Have you thought about being dead
+1.Have you thought about suicide
+1.Have you thought about being not alive
+1.Have you thought about what it would be like to be dead
+1.Have you thought about what it would be like to suicide
+1.Have you thought about what it would be like to not be alive
+1.Have you wished you were dead
+1.Have you wished you commited suicide
+1.Have you wished you were not alive
+1.Have you  wished you could go to sleep and never wake up
+1.Do you wish you werent alive anymore
+1.Do you wish to suicide
+2.Have you thought about doing something to suicide
+2.Have you thought about doing something to make yourself not alive anymore
+2.Have you had any thoughts about killing yourself
+3.Have you thought about how you would suicide
+3.Have you thought about how you would kill yourself
+3.Have you thought about how you would make yourself not alive anymore
+4.Do you think you would really suicide
+4.Did you think you would really kill yourself
+4.Did you think you would really make yourself not alive anymore
+5.Have you thought about how and when you would suicide
+5.Have you thought about how and when you would kill yourself
+5.Have you thought about how and when you would make yourself not alive anymore
+5.Have you planned your suicide
+5.Have you planned how to kill yourself
+5.Have you planned how to make yourself not alive anymore
+
+

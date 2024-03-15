@@ -1,0 +1,8 @@
+Flask
+requests
+gensim
+flask-cors
+regex
+json
+flask_cors
+cpkil
