@@ -16,7 +16,7 @@ To utilize the Food Knowledge Graph for Personalized Dietary Recommendations:
 3. **Load Data**: Load the data into the system by processing and constructing the Food Knowledge Graph. Use files containing information such as nutritional content, dietary restrictions, and food categorization. 
 
     ```python
-    pk1.load_food_knowledge('data/Ing_Sub_1_2_3_7_NoDup_Labeling.json', 'data/dietary_restrictions.csv')
+    pk1.load_food_knowledge('data/Ing_Sub_1_2_3_7_NoDup_Labeling.json', 'data/dietary_restrictions.txt')
     ```
 
     Ensure that the provided files contain relevant information and are properly formatted.

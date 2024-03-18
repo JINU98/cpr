@@ -1,0 +1,4 @@
+1 [0,0,0,0,0] Healthy CHO
+2 [1,0,0,0,0] vegetable, meat with healthy CHO
+3 [1,1,0,0,0] vegetable, meat with Unhealthy CHO
+4 [1,1,1,1,1] Unhealthy CHO
